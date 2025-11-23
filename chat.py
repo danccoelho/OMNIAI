@@ -63,6 +63,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+
 if "show_sidebar" not in st.session_state:
     st.session_state.show_sidebar = True
 
@@ -101,11 +102,23 @@ with st.sidebar:
         st.success("Conversa apagada!")
 
     st.markdown("---")
-    st.caption("**AI Expert Chat** — Assistente especializado em Machine Learning, XAI e LLMs.")
+    st.caption("**ML Expert Chat** — Tuso sobre o mundo da IA.")
     st.caption("Desenvolvido por Daniel Coelho 🚀")
 
 
-st.title("IA Expert chat")
+st.markdown("""
+<div style="
+    padding: 20px;
+    background-color: #ffffffcc;
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #e5e5e5;
+">
+    <h2>🧠 ML Expert Chat</h2>
+    <p>Chat especializado em Machine Learning, Deep Learning, XAI e LLMs.</p>
+</div>
+""", unsafe_allow_html=True)    
 
 for message in st.session_state.messages:
   with st.chat_message(message["role"]):
@@ -134,7 +147,7 @@ if prompt := st.chat_input():
                 messages = message_api_key,
                 model = "openai/gpt-oss-20b",
                 temperature = 0.7,
-                max_tokens = 204,
+                max_tokens = 2048,
               )
               response =  chat_completion.choices[0].message.content
               st.markdown(response)
