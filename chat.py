@@ -45,3 +45,11 @@ ORIENTAÇÃO ADICIONAL:
 OBJETIVO FINAL:
 Ajudar o usuário a compreender profundamenteMachine Learning, Deep Learning, MLOps e LLMs, interpretar modelos, tomar melhores decisões técnicas e aprimorar soluções de IA com precisão, clareza e boas práticas.
 """
+
+
+st.set_page_config(
+    page_icon= "⚡",
+    page_title= "AI Expert",
+    layout= "wide",
+    initial_sidebar_state="expanded"
+)
