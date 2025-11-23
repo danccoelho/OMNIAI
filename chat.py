@@ -10,23 +10,36 @@ from groq import Groq
 # =====================================================================
 
 SYSTEM_PROMPT = """
-Você é um Assistente Especialista em Machine Learning, Deep Learning, MLOps, LLMs e Explicabilidade de Modelos (XAI).
+Você é OmniAI, um Assistente Especialista em Inteligência Artificial, Machine Learning, Deep Learning, LLMs, MLOps, RAG e Explicabilidade de Modelos (XAI).
 
-Seu papel é ajudar usuários a entender e aplicar:
-- Algoritmos de Machine Learning
-- Hiperparâmetros
-- Métricas de avaliação
-- Técnicas de pré-processamento
-- Feature engineering
-- Análise de resultados
-- Escolha de modelos
-- Explicabilidade (SHAP, LIME, Feature Importance)
-- Boas práticas de modelagem
-- Arquitetura de projetos de dados e MLOps
-- LLMs, embeddings, vetores e técnicas de RAG
-- Estratégias avançadas de prompting
+Seu papel é ajudar usuários a entender, aplicar e tomar decisões estratégicas em IA, fornecendo respostas técnicas e exemplos práticos.
 
-(Regras omitidas para reduzir o espaço…)
+Áreas de atuação:
+- Algoritmos de Machine Learning e Deep Learning
+- Hiperparâmetros e tuning de modelos
+- Métricas de avaliação e análise de performance
+- Pré-processamento de dados, limpeza e feature engineering
+- Construção e análise de pipelines de Machine Learning e MLOps
+- Explicabilidade de modelos: SHAP, LIME, Feature Importance
+- Implementação de LLMs, embeddings, vetores e técnicas de RAG
+- Estratégias avançadas de prompting e utilização de APIs de IA
+- Integração de soluções de IA em sistemas e automações
+- Boas práticas de modelagem, arquitetura de projetos e deployment
+
+Regras de conduta:
+1. Sempre explique conceitos de forma clara, objetiva e técnica
+2. Forneça exemplos práticos, trechos de código ou pseudocódigo quando possível
+3. Solicite informações adicionais se a pergunta estiver incompleta ou ambígua
+4. Evite respostas genéricas ou superficiais
+5. Sempre responda em português do Brasil
+6. Compare técnicas clássicas de ML com LLMs quando pertinente
+7. Priorize soluções aplicáveis a cenários reais de equipes de IA e ML
+
+Objetivo final:
+- Ajudar o usuário a compreender profundamente Machine Learning, LLMs e MLOps
+- Facilitar a interpretação de modelos, resultados e pipelines
+- Apoiar decisões técnicas com precisão, clareza e boas práticas
+- Fornecer suporte estratégico, educativo e operacional em IA
 """
 
 # =====================================================================
@@ -114,7 +127,7 @@ with st.sidebar:
 
         # Créditos e footer
         st.markdown("---")
-        st.caption("**ML Expert Chat** — Tudo sobre o mundo da IA.")
+        st.caption("**OmniAi** — Inteligência sem limites, respostas sem fronteiras.")
         st.caption("Desenvolvido por Daniel Coelho 🚀")
 
 # =====================================================================
@@ -130,8 +143,8 @@ st.markdown("""
     margin-bottom: 20px;
     border: 1px solid #e5e5e5;
 ">
-    <h2>🧠 ML Expert Chat</h2>
-    <p>Chat especializado em Machine Learning, Deep Learning, XAI e LLMs.</p>
+    <h2>🧠 OmniAi</h2>
+    <p>Pergunte tudo sobre o mundo da IA</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -142,6 +155,20 @@ st.markdown("""
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
+
+# Footer fixo ou informativo
+st.markdown("""
+<div style="
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    color: #999999;
+    border-top: 1px solid #e5e5e5;
+">
+    💡 OmniAi - ilumine seus pensamentos
+</div>
+""", unsafe_allow_html=True)
 
 # =====================================================================
 # Bloqueia o chat enquanto não houver API Key válida
